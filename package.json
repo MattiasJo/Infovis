@@ -1,0 +1,22 @@
+{
+  "name": "infovis",
+  "version": "1.0.0",
+  "description": "InfoVis Course Project 2018",
+  "main": "./app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kriknu/Infovis.git"
+  },
+  "author": "Kristoffer Knutsson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kriknu/Infovis/issues"
+  },
+  "homepage": "https://github.com/Kriknu/Infovis#readme",
+  "dependencies": {
+    "npm-sass": "^2.2.1"
+  }
+}

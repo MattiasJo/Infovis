@@ -1,0 +1,253 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+path {
+  stroke: steelblue;
+  stroke-width: 2;
+  fill: none; }
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1;
+  shape-rendering: crispEdges; }
+
+body {
+  font: 12px Arial;
+  background-color: #575757;
+  display: block;
+  margin: 0px; }
+  body #menucontainer {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    background-color: orangered;
+    height: 300px; }
+    body #menucontainer #logodiv {
+      background-color: #575757;
+      grid-column: 1 3;
+      padding-left: 15%; }
+      body #menucontainer #logodiv img {
+        height: 300px; }
+    body #menucontainer .btn-group {
+      background-color: #575757;
+      grid-column-start: 2;
+      grid-column-end: last;
+      padding-top: 120px;
+      padding-right: 5%; }
+      body #menucontainer .btn-group button {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #575757;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 14px;
+        padding: 10px;
+        width: 17%;
+        height: 15%;
+        transition: all 0.5s;
+        cursor: pointer;
+        float: right;
+        overflow: hidden; }
+        body #menucontainer .btn-group button span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s; }
+      body #menucontainer .btn-group button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s; }
+      body #menucontainer .btn-group button:hover span {
+        padding-right: 25px; }
+      body #menucontainer .btn-group button:hover {
+        background-color: #626262; }
+      body #menucontainer .btn-group button:hover span:after {
+        opacity: 1;
+        right: 0; }
+  body #contentbox {
+    padding: 30px;
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    background-color: #DFDFDF; }
+    body #contentbox .box {
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 5px;
+      height: 350px;
+      background-color: #EFEFEF; }
+    body #contentbox .box:hover {
+      transition-duration: 0.5s;
+      box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.4); }
+    body #contentbox .even_row_small {
+      grid-column-start: 1 / 2;
+      display: block; }
+      body #contentbox .even_row_small .picdiv {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-image: url(../pic/temp_pic2.jpg);
+        background-size: cover;
+        background-position: right top;
+        background-repeat: no-repeat;
+        height: 150px; }
+      body #contentbox .even_row_small .picdiv:before {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; }
+      body #contentbox .even_row_small .textdiv {
+        margin: 5px;
+        display: block;
+        height: 100%; }
+        body #contentbox .even_row_small .textdiv #header {
+          color: #000000;
+          font-size: 40px;
+          font-family: "Yanone Kaffeesatz", sans-serif; }
+        body #contentbox .even_row_small .textdiv #content {
+          color: #000000;
+          font-size: 18px;
+          font-family: "Roboto Slab", serif;
+          overflow: hidden;
+          height: 40%; }
+    body #contentbox .even_row_large {
+      grid-column: 2 / 4;
+      display: grid;
+      grid-template-columns: 1fr 1fr; }
+      body #contentbox .even_row_large .textdiv {
+        display: block;
+        grid-column: 1 / 2;
+        height: 100%;
+        margin: 5px; }
+        body #contentbox .even_row_large .textdiv #header {
+          color: #000000;
+          font-size: 40px;
+          font-family: "Yanone Kaffeesatz", sans-serif; }
+        body #contentbox .even_row_large .textdiv #content {
+          color: #000000;
+          font-size: 18px;
+          font-family: "Roboto Slab", serif;
+          overflow: hidden;
+          height: 83%; }
+      body #contentbox .even_row_large .picdiv {
+        grid-column: 2 / 3;
+        background-image: url(../pic/temp_pic3.jpg);
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        background-size: cover;
+        background-position: right top;
+        background-repeat: no-repeat; }
+      body #contentbox .even_row_large .picdiv:before {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px; }
+    body #contentbox .odd_row_large {
+      grid-column: 1 / 3;
+      display: grid;
+      grid-template-columns: 1fr 1fr; }
+      body #contentbox .odd_row_large .textdiv {
+        display: block;
+        grid-column: 2 / 3;
+        height: 100%;
+        margin: 5px; }
+        body #contentbox .odd_row_large .textdiv #header {
+          color: #000000;
+          font-size: 40px;
+          font-family: "Yanone Kaffeesatz", sans-serif; }
+        body #contentbox .odd_row_large .textdiv #content {
+          color: #000000;
+          font-size: 18px;
+          font-family: "Roboto Slab", serif;
+          overflow: hidden;
+          height: 83%; }
+      body #contentbox .odd_row_large .picdiv {
+        grid-column: 1 / 2;
+        background-image: url(../pic/temp_pic3.jpg);
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px;
+        background-size: cover;
+        background-position: right top;
+        background-repeat: no-repeat; }
+      body #contentbox .odd_row_large .picdiv:before {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-bottom-left-radius: 5px;
+        border-top-left-radius: 5px; }
+    body #contentbox .odd_row_small {
+      grid-column: 3 / 4; }
+      body #contentbox .odd_row_small .picdiv {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: rgba(112, 128, 144, 0.4);
+        background-image: url(../pic/temp_pic1.jpg);
+        background-size: cover;
+        background-position: right top;
+        background-repeat: no-repeat;
+        height: 150px; }
+      body #contentbox .odd_row_small .picdiv:before {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; }
+      body #contentbox .odd_row_small .textdiv {
+        margin: 5px;
+        display: block;
+        height: 100%; }
+        body #contentbox .odd_row_small .textdiv #header {
+          color: #000000;
+          font-size: 40px;
+          font-family: "Yanone Kaffeesatz", sans-serif; }
+        body #contentbox .odd_row_small .textdiv #content {
+          color: #000000;
+          font-size: 18px;
+          font-family: "Roboto Slab", serif;
+          overflow: hidden;
+          height: 40%; }
+    body #contentbox .full_row {
+      grid-column: 1 / 4;
+      display: grid;
+      grid-template-columns: 3fr 2fr; }
+      body #contentbox .full_row .textdiv {
+        display: block;
+        grid-column: 1 / 2;
+        height: 100%;
+        margin: 5px; }
+        body #contentbox .full_row .textdiv #header {
+          color: #000000;
+          font-size: 40px;
+          font-family: "Yanone Kaffeesatz", sans-serif; }
+        body #contentbox .full_row .textdiv #content {
+          color: #000000;
+          font-size: 18px;
+          font-family: "Roboto Slab", serif;
+          overflow: hidden;
+          height: 83%; }
+      body #contentbox .full_row .picdiv {
+        grid-column: 2 / 3;
+        background-image: url(../pic/temp_pic3.jpg);
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        background-size: cover;
+        background-position: right top;
+        background-repeat: no-repeat; }
+      body #contentbox .full_row .picdiv:before {
+        background-color: rgba(255, 255, 255, 0.7);
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px; }
+    body #contentbox .overlay {
+      position: relative; }
+    body #contentbox .overlay:before {
+      position: absolute;
+      content: " ";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      z-index: 0; }
+    body #contentbox .overlay:hover:before {
+      display: block; }
