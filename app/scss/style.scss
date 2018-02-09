@@ -15,6 +15,18 @@ $yan:    'Yanone Kaffeesatz', sans-serif;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
   }
+
+#secondGraph{
+    rect {
+        fill: steelblue;
+}
+
+    text {
+        fill: white;
+        font: 10px sans-serif;
+        text-anchor: end;
+}
+}
 path { 
     stroke: steelblue;
     stroke-width: 2;
@@ -117,10 +129,6 @@ body{
             height: $boxHeight;
             background-color: #EFEFEF;
         }
-        .box:hover{
-            transition-duration: $transitionTime;
-            box-shadow:  0px 8px 10px rgba($color: #000000, $alpha: .4);
-        }
         
         
         .even_row_small{
@@ -129,16 +137,11 @@ body{
             .picdiv{
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
-                background-image: url(../pic/temp_pic2.jpg);
+                //background-image: url(../pic/temp_pic2.jpg);
                 background-size: cover;
                 background-position: right top;
                 background-repeat: no-repeat;
                 height: 150px;
-            }
-            .picdiv:before {
-                background-color: rgba($color: white, $alpha: .7);
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
             }
             .textdiv{
                 margin: 5px;
@@ -187,18 +190,13 @@ body{
             }
             .picdiv{
                 grid-column: 2 / 3;
-                background-image: url(../pic/temp_pic3.jpg);
+                //background-image: url(../pic/temp_pic3.jpg);
                 border-bottom-right-radius: 5px;
                 border-top-right-radius: 5px;
                 background-size: cover;
                 background-position: right top;
                 background-repeat: no-repeat;
 
-            }
-            .picdiv:before {
-                background-color: rgba($color: white, $alpha: .7);
-                border-bottom-right-radius: 5px;
-                border-top-right-radius: 5px;
             }
         }
 
@@ -228,18 +226,13 @@ body{
             }
             .picdiv{
                 grid-column: 1 / 2;
-                background-image: url(../pic/temp_pic3.jpg);
+                //background-image: url(../pic/temp_pic3.jpg);
                 border-bottom-left-radius: 5px;
                 border-top-left-radius: 5px;
                 background-size: cover;
                 background-position: right top;
                 background-repeat: no-repeat;
 
-            }
-            .picdiv:before {
-                background-color: rgba($color: white, $alpha: .7);
-                border-bottom-left-radius: 5px;
-                border-top-left-radius: 5px;
             }
         }
 
@@ -248,17 +241,13 @@ body{
             .picdiv{
                 border-top-left-radius: 5px;
                 border-top-right-radius: 5px;
-                background-color: rgba($color: slategray, $alpha: .4);
-                background-image: url(../pic/temp_pic1.jpg);
+                //background-color: rgba($color: white, $alpha: .4);
+                //background-image: url(../pic/temp_pic1.jpg);
                 background-size: cover;
                 background-position: right top;
                 background-repeat: no-repeat;
                 height: 150px;
             }
-            .picdiv:before {
-                background-color: rgba($color: white, $alpha: .7);
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
             }
             .textdiv{
                 margin: 5px;
@@ -305,7 +294,7 @@ body{
             }
             .picdiv{
                 grid-column: 2 / 3;
-                background-image: url(../pic/temp_pic3.jpg);
+                //background-image: url(../pic/temp_pic3.jpg);
                 border-bottom-right-radius: 5px;
                 border-top-right-radius: 5px;
                 background-size: cover;
@@ -313,28 +302,6 @@ body{
                 background-repeat: no-repeat;
 
             }
-            .picdiv:before {
-                background-color: rgba($color: white, $alpha: .7);
-                border-bottom-right-radius: 5px;
-                border-top-right-radius: 5px;
-            }
         }
-        .overlay {
-            position: relative;
-          }
-          
-          .overlay:before{
-            position: absolute;
-            content:" ";
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            display: none;
-            z-index:0;
-          }
-          .overlay:hover:before{
-            display: block;
-          }
-    }
+    
 }
