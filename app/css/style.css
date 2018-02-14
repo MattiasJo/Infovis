@@ -1,7 +1,82 @@
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+header {
+  height: 4em;
+  margin: 0 auto;
+  background-color: white;
+}
+
+header h1{
+  margin: auto 0 auto 4em;
+  padding-top: 0.35em;
+}
+
+.container {
+  width: 85%;
+  height: 1500px;
+  margin: 0 auto;
+}
+
+.box {
+  background-color: white;
+  border-radius: 8px;
+  margin-top: 2em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.map {
+  height: 400px;
+}
+
+.graph {
+  display: inline-block;
+  width: 48.7%;
+  height: 350px;
+  margin: 2em 2.3% 0 0;
+}
+
+#graph2 {
+  margin-right: 0;
+}
+
+.graph h2 {
+  margin-left: 0.5em;
+}
+
+.infobox {
+  display: inline-block;
+  text-align: center;
+  width: 49%;
+  height: 50%;
+  margin: 0 auto;
+  padding: 2em 0;
+}
+
+.infobox__number,
+.infobox__text {
+  margin: 1px 0;
+}
+
+.infobox__number {
+  font-size: 3em;
+}
+
+.infobox__text {
+  font-size: 1.2em;
+}
+
+.infobox__img {
+  width: 8em;
+}
+
+.wordcloud {
+
+}
 
 #secondGraph rect {
   fill: steelblue; }
@@ -25,7 +100,7 @@ path {
 
 body {
   font: 12px Arial;
-  background-color: #575757;
+  background-color: #f7f7f7;
   display: block;
   margin: 0px; }
   body #menucontainer {
