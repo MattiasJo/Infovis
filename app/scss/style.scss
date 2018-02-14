@@ -16,31 +16,6 @@ $yan:    'Yanone Kaffeesatz', sans-serif;
     box-sizing: border-box;
   }
 
-#secondGraph{
-    rect {
-        fill: steelblue;
-}
-
-    text {
-        fill: white;
-        font: 10px sans-serif;
-        text-anchor: end;
-}
-}
-path { 
-    stroke: steelblue;
-    stroke-width: 2;
-    fill: none;
-}
-
-.axis path,
-.axis line {
-    fill: none;
-    stroke: grey;
-    stroke-width: 1;
-    shape-rendering: crispEdges;
-}
-
 body{
     font: 12px Arial;
     background-color: $bgColor;

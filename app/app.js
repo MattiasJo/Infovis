@@ -1,52 +1,16 @@
-var isEven = true;
+var isEven = false;
 var shouldBeFullRow = false;
 var firstAdded = false;
-var test = createNewsBox('shit');
-var test2 = createTempBox('woo');
+
+var test = createFirstBox();
 
 
-function createNewsBox(contents){
-    var newDiv = document.createElement('div');
-    newDiv.className = getNextDivClass();
-    console.log(newDiv.className);
 
-    var cont = document.createElement('div');
-
-    var headerDiv = document.createElement('div');
-    headerDiv.id = "header";
-    headerDiv.innerText = "What is this?";
-
-    var pic = document.createElement('div');
-    pic.className = 'picdiv';
-    cont.appendChild(headerDiv);
-    
-    newDiv.appendChild(pic);
-    newDiv.appendChild(cont);
-    
-    document.getElementById('contentbox').appendChild(newDiv);
-    addFirstGraph(pic);
-}
-
-function createTempBox(contents){
-
-    var rowBox = document.createElement('div'); //creating even row large
-    rowBox.className = getNextDivClass();
-    console.log(rowBox.className);
-
-    var textDiv = document.createElement('div'); //creating textdiv
-    textDiv.className = "textdiv"
-
-    var pic = document.createElement('div');
-    pic.className = 'picdiv';
-    pic.style.backgroundColor = "red";
-    
-    rowBox.appendChild(textDiv);
-    rowBox.appendChild(pic);
-    
-    document.getElementById('contentbox').appendChild(rowBox);
-    addSecondGraph(pic);
-}
-
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                      FUNCTION TO GET CORRECT DOM STRUCTURE                 //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
 function getNextDivClass(){
     if(isEven){
@@ -77,84 +41,123 @@ function getNextDivClass(){
     }
 }
 
-function addSecondGraph(contentDiv){
-    contentDiv.id = "secondGraph";
-    var tmpDiv = d3.select('#secondGraph');
 
-    var datas = [4, 8, 15, 16, 23, 42];
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                          FIRST GRAPH STUFF                                 //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
 
-    var margin = {top: 20, right: 20, bottom: 70, left: 40},
-    width = 600 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+function createFirstBox(contents){
+    var newDiv = document.createElement('div');
+    newDiv.className = getNextDivClass();
+    console.log(newDiv.className);
 
-    // Parse the date / time
-    var	parseDate = d3.time.format("%Y-%m").parse;
+    var cont = document.createElement('div');
 
-    var x = d3.scale.linear().range([0, width]);
+    var headerDiv = document.createElement('div');
+    headerDiv.id = "header";
+    headerDiv.innerText = "What is this?";
 
-    var y = d3.scale.linear().range([height, 0]);
-
-    var xAxis = d3.svg.axis()
-        .scale(x)
-        .orient("bottom")
-        .tickFormat(13);
-
-    var yAxis = d3.svg.axis()
-        .scale(y)
-        .orient("left")
-        .ticks(10);
-
-    var svg = d3.select("body").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform", 
-            "translate(" + margin.left + "," + margin.top + ")");
-
-    d3.csv("/data/Data-Tabell1.csv", function(error, data) {
-
-    data.forEach(function(d) {
-        d.Year = +d.Year;
-        d.Revenue = +d.Revenue;
-    });
-	
-    x.domain(data.map(function(d) { return d.Year; }));
-    y.domain([0, d3.max(data, function(d) { return d.Revenue; })]);
-
-    svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis)
-        .selectAll("text")
-        .style("text-anchor", "end")
-        .attr("dx", "-.8em")
-        .attr("dy", "-.55em")
-        .attr("transform", "rotate(-90)" );
-
-    svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis)
-        .append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("dy", ".71em")
-        .style("text-anchor", "end")
-        .text("Value ($)");
-
-    svg.selectAll("bar")
-        .data(data)
-        .enter().append("rect")
-        .style("fill", "steelblue")
-        .attr("x", function(d) { return x(d.Year); })
-        .attr("width", x)
-        .attr("y", function(d) { return y(d.Revenue); })
-        .attr("height", function(d) { return height - y(d.Revenue); });
-
-    });
+    var pic = document.createElement('div');
+    pic.className += 'firstGraph';
+    cont.appendChild(headerDiv);
     
+    newDiv.appendChild(pic);
+    newDiv.appendChild(cont);
+    
+    document.getElementById('contentbox').appendChild(newDiv);
+    addFirstGraph();
 }
 
-function addFirstGraph(contentDiv){
+function addFirstGraph(){
+    var margin      = {top: 50, right: 20,bottom: 20, left: 100},
+        width       = 380 - margin.left - margin.right,
+        height      = 380 - margin.top - margin.bottom,
+        x           = d3.scaleBand().rangeRound([0,width]).paddingInner(0.5),
+        y           = d3.scaleLinear().range([height,0]); 
+
+    var xAxis       = d3.axisBottom()
+        .scale(x)
+        .ticks(12);
+    
+    var yAxis       = d3.axisLeft()
+        .scale(y)
+        .ticks(10);
+
+    var canvas      = d3.select(".firstGraph")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+
+    d3.csv("/data/3month_sell_value.csv", function(data) {
+        data.forEach(function(d) {
+            d['Antal'] = +d['Antal'];
+        });
+
+        x.domain(data.map(function (d) {
+            return d.omr;
+        }));
+
+        y.domain([0, d3.max(data, function (d) {
+            return d.antal;
+        })]);
+
+        canvas.append("g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0, " + height + ")")
+            .call(xAxis)
+            .selectAll("text")
+            .attr("dx", "-0.5em")
+            .attr("dy", "-0.55em")
+            .attr("y", 30)
+            .attr("transform", "rotate(-45)");
+
+        canvas.append("g")
+            .attr("class", "y axis")
+            .call(yAxis)
+
+        canvas.append("text")
+            .attr("transform", "rotate(90)")
+            .attr("y", -20)
+            .attr("x", 35)
+            .attr("dy", "0.8em")
+            .attr("text-anchor", "end")
+            .text("Testing");
+
+        canvas.selectAll("bar")
+            .data(data)
+            .enter()
+            .append("rect")
+            .style("fill", "orange")
+            .attr("x", function (d) {
+                return x(d.omr);
+            })
+            .attr("width", x.bandwidth())
+            .attr("y", function (d) {
+                return y(d.antal);
+            })
+            .attr("height", function (d) {
+                return height - y(d.rank);
+            });
+        });
+}
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+//                          SECOND GRAPH STUFF                                //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+
+/*function addFirstGraph(contentDiv){
     // Set an original id on the div on which a graph is about to be added (SHOULD NOT BE NECESSARY)
     contentDiv.id = "firstGraph";
     var tmpDiv = d3.select('#firstGraph');
@@ -220,7 +223,7 @@ function addFirstGraph(contentDiv){
             .call(yAxis);
 
     });
-}
+}*/
 
 
 

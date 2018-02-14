@@ -78,26 +78,6 @@ header h1{
 
 }
 
-#secondGraph rect {
-  fill: steelblue; }
-
-#secondGraph text {
-  fill: white;
-  font: 10px sans-serif;
-  text-anchor: end; }
-
-path {
-  stroke: steelblue;
-  stroke-width: 2;
-  fill: none; }
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: grey;
-  stroke-width: 1;
-  shape-rendering: crispEdges; }
-
 body {
   font: 12px Arial;
   background-color: #f7f7f7;
@@ -162,6 +142,12 @@ body {
     grid-template-columns: 2fr 1fr 2fr;
     background-color: #DFDFDF; }
     body #contentbox .box {
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+      border: none;
+      border-radius: 5px;
+      height: 350px;
+      background-color: #EFEFEF; }
+    body #contentbox .box:hover {
       box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
       border: none;
       border-radius: 5px;
